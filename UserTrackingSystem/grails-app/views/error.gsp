@@ -6,7 +6,9 @@
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
     <body>
-        <g:if env="development">
+    <g:render template="/layouts/menu"/>
+
+    <g:if env="development">
             <g:if test="${Throwable.isInstance(exception)}">
                 <g:renderException exception="${exception}" />
             </g:if>
