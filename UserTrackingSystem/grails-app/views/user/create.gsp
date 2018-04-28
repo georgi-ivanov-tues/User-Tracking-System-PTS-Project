@@ -11,12 +11,12 @@
     <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                %{--<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>--}%
+                <li><g:link class="list" action="index"><g:message code="user.userList" args="[entityName]" /></g:link></li>
             </ul>
         </div>
         <div id="create-user" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1><g:message code="user.createNewUser" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -29,10 +29,20 @@
             </g:hasErrors>
             <g:form resource="${this.user}" method="POST">
                 <fieldset class="form">
-                    <f:all bean="user"/>
+                    %{--<f:field bean="user" property="firstName"/>--}%
+                    %{--<f:field bean="user" property="secondName"/>--}%
+                    %{--<f:field bean="user" property="familyName"/>--}%
+                    %{--<f:field bean="user" property="egn"/>--}%
+                    %{--<f:field bean="user" property="email"/>--}%
+                    %{--<f:field bean="user" property="department"/>--}%
+                    %{--<f:field bean="user" property="position"/>--}%
+                    %{--<f:field bean="user" property="userType"/>--}%
+                    %{--<f:field bean="user" property="userState"/>--}%
+                    <f:all bean="user"
+                           order="firstName, secondName, familyName, egn, email, department, position, userType, userState"/>
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    <g:submitButton name="create" class="save" value="${message(code: 'button.save', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>

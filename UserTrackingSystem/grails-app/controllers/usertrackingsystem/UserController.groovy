@@ -37,7 +37,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'user.created.message')
                 redirect user
             }
             '*' { respond user, [status: CREATED] }
@@ -63,7 +63,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'user.updated.message')
                 redirect user
             }
             '*'{ respond user, [status: OK] }
@@ -80,7 +80,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+                flash.message = message(code: 'user.deleted.message')
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -90,7 +90,7 @@ class UserController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
+                flash.message = message(code: 'user.not.found.message')
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

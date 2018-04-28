@@ -9,9 +9,10 @@ class User {
     private String email
     private String department
     private String position
-    private UserStates state
+    private UserStates userState
+    private UserTypes userType
 
-    User(Long id, String firstName, String secondName, String familyName, String egn, String email, String department, String position, UserStates state) {
+    User(Long id, String firstName, String secondName, String familyName, String egn, String email, String department, String position, UserStates state, UserTypes userType) {
         this.id = id
         this.firstName = firstName
         this.secondName = secondName
@@ -20,7 +21,8 @@ class User {
         this.email = email
         this.department = department
         this.position = position
-        this.state = state
+        this.userState = state
+        this.userType = userType
     }
 
     Long getId() {
@@ -87,11 +89,19 @@ class User {
         this.position = position
     }
 
-    UserStates getState() {
-        return state
+    UserStates getUserState() {
+        return userState
     }
 
-    void setState(UserStates state) {
-        this.state = state
+    void setUserState(UserStates userState) {
+        this.userState = userState
+    }
+
+    UserTypes getUserType() {
+        return userType
+    }
+
+    void setUserType(UserTypes userType) {
+        this.userType = userType
     }
 }

@@ -37,7 +37,7 @@ class TaskController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'task.label', default: 'Task'), task.id])
+                flash.message = message(code: 'task.created.message')
                 redirect task
             }
             '*' { respond task, [status: CREATED] }
@@ -63,7 +63,7 @@ class TaskController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'task.label', default: 'Task'), task.id])
+                flash.message = message(code: 'task.updated.message')
                 redirect task
             }
             '*'{ respond task, [status: OK] }
@@ -80,7 +80,7 @@ class TaskController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'task.label', default: 'Task'), id])
+                flash.message = message(code: 'task.deleted.message')
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -90,7 +90,7 @@ class TaskController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'task.label', default: 'Task'), params.id])
+                flash.message = message(code: 'task.not.found.message')
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

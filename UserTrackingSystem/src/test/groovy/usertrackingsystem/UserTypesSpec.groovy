@@ -3,7 +3,7 @@ package usertrackingsystem
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class AdminSpec extends Specification implements DomainUnitTest<Admin> {
+class UserTypesSpec extends Specification implements DomainUnitTest<UserTypes> {
 
     def setup() {
     }
