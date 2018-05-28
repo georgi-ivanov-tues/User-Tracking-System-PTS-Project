@@ -16,7 +16,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Админски панел<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                %{--<li><a href="#">Седмичен репорт</a></li>--}%
+                <li><a href="#">Дневни отчети</a></li>
                 <li><a href="${createLink(uri: '/user/index')}">Потребители</a></li>
             </ul>
         </li>

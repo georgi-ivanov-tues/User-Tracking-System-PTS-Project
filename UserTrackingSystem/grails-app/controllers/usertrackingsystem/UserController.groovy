@@ -81,6 +81,7 @@ class UserController {
 
         try {
             userService.save(user)
+            Application.users.add(user)
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return
