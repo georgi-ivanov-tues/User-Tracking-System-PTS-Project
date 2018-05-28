@@ -1,8 +1,22 @@
 package usertrackingsystem
 
 enum TaskPriorities {
-    LOW,
-    MID,
-    HIGH,
-    CRITICAL
+    LOW ('Нисък'),
+    MID ('Среден'),
+    HIGH ('Висок'),
+    CRITICAL ('Критичен')
+
+    TaskPriorities(String value) {
+        this.value = value
+    }
+
+    private final String value
+
+    String getValue() {
+        value
+    }
+
+    String toString() {
+        return value
+    }
 }

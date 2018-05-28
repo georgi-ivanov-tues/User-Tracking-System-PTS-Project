@@ -29,17 +29,19 @@
             </g:hasErrors>
             <g:form resource="${this.user}" method="POST">
                 <fieldset class="form">
-                    %{--<f:field bean="user" property="firstName"/>--}%
-                    %{--<f:field bean="user" property="secondName"/>--}%
-                    %{--<f:field bean="user" property="familyName"/>--}%
-                    %{--<f:field bean="user" property="egn"/>--}%
-                    %{--<f:field bean="user" property="email"/>--}%
-                    %{--<f:field bean="user" property="department"/>--}%
-                    %{--<f:field bean="user" property="position"/>--}%
-                    %{--<f:field bean="user" property="userType"/>--}%
-                    %{--<f:field bean="user" property="userState"/>--}%
-                    <f:all bean="user"
-                           order="firstName, secondName, familyName, egn, email, department, position, userType, userState"/>
+                    <f:field bean="user" property="username" label="Потребителско име"/>
+                    <f:field bean="user" property="password" label="Парола"/>
+                    <f:field bean="user" property="firstName" label="Име"/>
+                    <f:field bean="user" property="secondName" label="Презиме"/>
+                    <f:field bean="user" property="familyName" label="Фамилия"/>
+                    <f:field bean="user" property="egn" label="ЕГН"/>
+                    <f:field bean="user" property="email" label="Email"/>
+                    <f:field bean="user" property="department" label="Отдел"/>
+                    <f:field bean="user" property="position" label="Позиция"/>
+                    <f:field bean="user" property="userType" label="Тип потребител"/>
+                    <f:field bean="user" property="userState" label="Състояние"/>
+                    %{--<f:all bean="user"--}%
+                           %{--order="firstName, secondName, familyName, egn, email, department, position, userType, userState"/>--}%
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'button.save', default: 'Create')}" />

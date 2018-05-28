@@ -19,6 +19,7 @@ class ReportController {
     }
 
     def createDailyReport() {
+
         respond new DailyReport(params)
     }
 

@@ -5,11 +5,16 @@ import static org.springframework.http.HttpStatus.*
 
 class TaskController {
 
-    TaskService taskService
+    static TaskService taskService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+        println "logged user = " + Application.loggedUser
+        taskService.save(Application.defaultTasks.get(0))
+        taskService.save(Application.defaultTasks.get(1))
+        taskService.save(Application.defaultTasks.get(2))
+
         params.max = Math.min(max ?: 10, 100)
         respond taskService.list(params), model:[taskCount: taskService.count()]
     }
@@ -95,5 +100,14 @@ class TaskController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    static ArrayList<Task> getTasksByUser(User user){
+        ArrayList<Task> tasks = new ArrayList<>()
+        for(Task task : taskService.list()){
+            if(task.getUserAssigned().getId() == user.getId())
+                tasks.add(task)
+        }
+        return tasks
     }
 }

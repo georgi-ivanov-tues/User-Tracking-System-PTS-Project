@@ -1,6 +1,8 @@
 package usertrackingsystem
 
 class User {
+    private String username
+    private String password
     private Long id
     private String firstName
     private String secondName
@@ -12,7 +14,9 @@ class User {
     private UserStates userState
     private UserTypes userType
 
-    User(Long id, String firstName, String secondName, String familyName, String egn, String email, String department, String position, UserStates state, UserTypes userType) {
+    User(String username, String password, Long id, String firstName, String secondName, String familyName, String egn, String email, String department, String position, UserStates state, UserTypes userType) {
+        this.username = username
+        this.password = password
         this.id = id
         this.firstName = firstName
         this.secondName = secondName
@@ -25,8 +29,28 @@ class User {
         this.userType = userType
     }
 
+    String getUsername() {
+        return username
+    }
+
+    void setUsername(String username) {
+        this.username = username
+    }
+
+    String getPassword() {
+        return password
+    }
+
+    void setPassword(String password) {
+        this.password = password
+    }
+
     Long getId() {
         return id
+    }
+
+    String toString() {
+        return firstName + " " + secondName + " " + familyName
     }
 
     void setId(Long id) {

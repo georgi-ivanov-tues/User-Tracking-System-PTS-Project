@@ -22,16 +22,18 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="user"
-                       order="firstName, secondName, familyName, egn, email, department, position, userType, userState"/>
-            %{--<f:display bean="user" property="firstName"/>--}%
-            %{--<f:display bean="user" property="secondName"/>--}%
-            %{--<f:display bean="user" property="familyName"/>--}%
-            %{--<f:display bean="user" property="egn"/>--}%
-            %{--<f:display bean="user" property="email"/>--}%
-            %{--<f:display bean="user" property="department"/>--}%
-            %{--<f:display bean="user" property="position"/>--}%
-            %{--<f:display bean="user" property="userType"/>--}%
-            %{--<f:display bean="user" property="userState"/>--}%
+                       order="firstName, secondName, familyName, username, egn, email, department, position, userType, userState"/>
+
+
+            %{--<f:display bean="user" property="firstName" label="Име"/>--}%
+            %{--<f:display bean="user" property="secondName" label="Презиме"/>--}%
+            %{--<f:display bean="user" property="familyName" label="Фамилия"/>--}%
+            %{--<f:display bean="user" property="egn" label="ЕГН"/>--}%
+            %{--<f:display bean="user" property="email" label="Email"/>--}%
+            %{--<f:display bean="user" property="department" label="Отдел"/>--}%
+            %{--<f:display bean="user" property="position" label="Позиция"/>--}%
+            %{--<f:display bean="user" property="userType" label="Тип потребител"/>--}%
+            %{--<f:display bean="user" property="userState" label="Състояние"/>--}%
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.user}"><g:message code="button.edit" default="Edit" /></g:link>

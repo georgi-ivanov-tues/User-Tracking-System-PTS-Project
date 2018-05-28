@@ -8,6 +8,10 @@ class Task {
     private TaskPriorities priority
     private User userAssigned
 
+    static constraints = {
+        description widget: 'textarea'
+    }
+
     Task(Long id, String name, String description, TaskStatus status, TaskPriorities priority, User userAssigned) {
         this.id = id
         this.name = name

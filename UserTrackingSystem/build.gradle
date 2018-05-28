@@ -26,6 +26,8 @@ repositories {
 }
 
 dependencies {
+//    compile 'org.grails.plugins:database-migration:3.0.3'
+//    compile "org.grails.plugins:derby:0.1"
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"

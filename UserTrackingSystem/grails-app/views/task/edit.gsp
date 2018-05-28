@@ -31,8 +31,14 @@
             <g:form resource="${this.task}" method="PUT">
                 <g:hiddenField name="version" value="${this.task?.version}" />
                 <fieldset class="form">
-                    <f:all bean="task"
-                           order="name, description, status, priority, userAssigned"/>
+                    %{--<f:all bean="task"--}%
+                           %{--order="name, description, status, priority, userAssigned"/>--}%
+
+                    <f:field bean="task" property="name" label="Заглавие"/>
+                    <f:field bean="task" property="description" label="Описание"/>
+                    <f:field bean="task" property="status" label="Статус"/>
+                    <f:field bean="task" property="priority" label="Приоритет"/>
+                    <f:field bean="task" property="userAssigned" label="Възложена на"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'button.save', default: 'Update')}" />

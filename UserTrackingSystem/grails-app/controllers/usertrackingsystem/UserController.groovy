@@ -5,9 +5,56 @@ import static org.springframework.http.HttpStatus.*
 
 class UserController {
 
-    UserService userService
+    static UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
+    def login(){
+        render view: 'login'
+    }
+
+    def loginUser(){
+        boolean isUserFound = false
+        for(User usr : Application.users){
+            if(usr.getUsername().equals(params.username)){
+                if(usr.getPassword().equals(params.password)){
+                    Application.loggedUser = usr
+                    for(User users : Application.users)
+                        UserController.userService.save(users)
+                    render view: '../index'
+
+//                    redirect action: 'home'
+                    isUserFound = true
+
+                }else{
+                    isUserFound = true
+                    flash.message = "Грешна парола..."
+                    render view: 'login'
+                }
+            }
+        }
+        if(!isUserFound){
+            flash.message = "Няма такъв потребител..."
+            render view: 'login'
+        }
+
+    }
+
+    def logoutUser(){
+        println "Logout User..."
+
+        flash.message = "Излязохте от системата..."
+        render view: 'login'
+
+
+    }
+
+    def home(){
+        for(User usr : Application.users)
+            UserController.userService.save(usr)
+
+        render view: '../index'
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -16,6 +63,10 @@ class UserController {
 
     def show(Long id) {
         respond userService.get(id)
+    }
+
+    def userProfile(){
+        respond Application.loggedUser
     }
 
     def create() {
